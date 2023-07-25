@@ -33,7 +33,7 @@
         <div class="container-fluid">
             <div class="navbar-brand">
                 
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-5" href="https://mobiri.se">KHABO</a></span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-5" href="index.html">KHABO</a></span>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <div class="hamburger">
@@ -49,7 +49,7 @@
                     <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="page6.html">Create</a>
                     </li></ul>
                 <div class="icons-menu">
-                    <a class="iconfont-wrapper" href="https://mobiri.se" target="_blank">
+                    <a class="iconfont-wrapper" href="" target="_blank">
                         <span class="p-2 mbr-iconfont socicon-facebook socicon"></span>
                     </a>
                     <a class="iconfont-wrapper" href="https://www.youtube.com/watch?v=kY4_WdqhLQ4" target="_blank">
@@ -87,13 +87,15 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="name">
                             <input type="text" name="name" placeholder="Name" data-form-field="name" class="form-control" value="" id="name-form7-q">
                         </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="email">
-                            <input type="email" name="email" placeholder="Description" data-form-field="email" class="form-control" value="" id="email-form7-q">
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" data-for="description">
+                            <textarea id="txtid" class="form-control" name="txtname" rows="4" cols="50" maxlength="200" placeholder="Give The Recipe Description"></textarea>
                         </div>
-                        <div data-for="phone" class="col-lg-12 col-md-12 col-sm-12 form-group mb-3">
-                            <input type="tel" name="phone" placeholder="Ingredients" data-form-field="phone" class="form-control" value="" id="phone-form7-q">
+                        <div data-for="phone" class="col-lg-12 col-md-12 col-sm-12 form-group mb-3" id="Add_fields1">
+                            <input type="text" name="ingredients" placeholder="Ingredients 1" data-form-field="phone" class="form-control" value="" id="phone-form7-q">
                         </div>
-                        <div class="col-auto mbr-section-btn align-center"><button type="submit" class="btn btn-success display-4">Submit</button></div>
+                        
+                        <div class="col-auto mbr-section-btn align-center mb-3"><button type="button" id="Add_fields" class="btn btn-success display-4" onclick="addMoreCode1()">Add Ingredient Fields</button></div>
+                        <div class="col-auto mbr-section-btn align-center"><button type="submit" class="btn btn-danger display-4">Submit</button></div>        
                     </div>
                 </form>
             </div>
@@ -170,6 +172,19 @@
         </div>
     </div>
 </section>
+<script>
+    let count=1;
+    function addMoreCode1(){
+        console.log("Add_fields"+count.toString());
+        document.getElementById("Add_fields"+count.toString()).insertAdjacentHTML("afterend","<div class=\"col-lg-12 col-md-12 col-sm-12 form-group mb-3\" data-for=\"email\">"+
+        "<input type=\"text\" name=\"email\" placeholder=\"Ingredient 2\" data-form-field=\"email\" class=\"form-control\" value=\"\" id=\"email-form3-s\">"+
+        "</div>");
+        console.log("Ingredient "+count.toString());
+        document.getElementById("Add_fields"+count.toString()).nextSibling.setAttribute("id","Add_fields"+(count+1).toString());
+        document.getElementById("Add_fields"+count.toString()).nextSibling.firstChild.setAttribute("placeholder","Ingredient "+(count+1).toString());
+        count++;
+    }
+</script>
 <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/theme/js/script.js"></script>  <script src="assets/formoid/formoid.min.js"></script>  
   
 </body>
